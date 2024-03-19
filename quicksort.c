@@ -103,6 +103,21 @@ void quickSort(int arr[], int min, int max)
     }
 }
 
+int ithOrder(int arr[], int i, int min, int max)
+{
+	if(min == max)
+		return arr[min];
+	int index = partition(arr, min, max);
+	int k = index + 1 - min;
+
+	if (i == k)
+		return arr[index];
+	else if (i < k)
+		return ithOrder(arr, min, index - 1, i);
+	else if (i > k)
+		return ithOrder(arr, min, index + 1, i);
+}
+
 int main()
 {
     int randArr100[] = {63,47,2,31,34,38,25,78,93,7,8,67,94,15,26,58,72,48,9,65,1,41,75,6,17,85,35,53,91,57,92,100,20,66,68,97,69,81,89,96,27,82,62,3,10,22,59,4,98,36,14,39,12,71,23,42,61,32,16,76,88,50,46,99,74,44,73,70,49,55,13,33,84,24,29,37,19,83,5,64,21,54,60,90,45,18,52,11,95,87,80,43,79,51,56,77,40,28,30,86};
