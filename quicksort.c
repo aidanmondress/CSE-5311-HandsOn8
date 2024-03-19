@@ -110,11 +110,11 @@ int ithOrder(int arr[], int i, int min, int max)
 	int index = partition(arr, min, max);
 	int k = index + 1 - min;
 
-	if (i == k)
+	if(i == k)
 		return arr[index];
-	else if (i < k)
+	else if(i < k)
 		return ithOrder(arr, min, index - 1, i);
-	else if (i > k)
+	else if(i > k)
 		return ithOrder(arr, min, index + 1, i);
 }
 
